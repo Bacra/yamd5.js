@@ -335,6 +335,22 @@ THE SOFTWARE.
         return this;
     };
 
+    MD5.prototype.getState = function() {
+        return {
+            state: this._state.slice(),
+            dataLength: this._dataLength,
+            buffer: this._buffer.slice(),
+            bufferLength: this._bufferLength
+        };
+    };
+
+    MD5.prototype.setState = function(state) {
+        this._state.set(state.state);
+        this._dataLength = state.dataLength;
+        this._buffer32.set(new Uint32Array(state.buffer));
+        this._bufferLength = state.bufferLength;
+    };
+
     MD5.prototype.start = function() {
         this._dataLength = 0;
         this._bufferLength = 0;
