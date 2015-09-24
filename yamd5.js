@@ -349,6 +349,7 @@ THE SOFTWARE.
         this._dataLength = state.dataLength;
         this._buffer32.set(new Uint32Array(state.buffer));
         this._bufferLength = state.bufferLength;
+        return this;
     };
 
     MD5.prototype.start = function() {
