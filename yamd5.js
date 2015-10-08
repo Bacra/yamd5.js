@@ -337,7 +337,7 @@ THE SOFTWARE.
 
     MD5.prototype.getState = function() {
         return {
-            state: this._state.slice(),
+            state: this._state.buffer.slice(),
             dataLength: this._dataLength,
             buffer: this._buffer.slice(),
             bufferLength: this._bufferLength
